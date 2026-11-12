@@ -400,8 +400,7 @@ $("mb").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)re
  else if(b.dataset.daily){const t=new Date().toDateString();if(SV.daily==t)return;SV.ds=SV.daily==new Date(Date.now()-864e5).toDateString()?SV.ds+1:1;SV.daily=t;SV.coins+=50+25*Math.min(SV.ds,7);sfx("buy");save();openModal("stats")}});
 $("mb").addEventListener("input",e=>{const k=e.target.dataset.s;if(k)SV.set[k]=e.target.type=="checkbox"?(e.target.checked?1:0):+e.target.value;save()});
 $("mc").onclick=closeModal;$("rm").onclick=()=>start(S.mode);$("om").onclick=showMenu;$("bm").onclick=pauseGame;$("bf").onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()};
-await window.CrazyGames.SDK.init();
-window.CrazyGames.SDK.game.gameplayStart();
+
 newGame();showMenu();
 function fit(){const s=$("stage"),w=Math.min(s.clientWidth,s.clientHeight*W/H),wr=document.querySelector(".wrap");wr.style.width=w+"px";wr.style.height=w*H/W+"px"}
 new ResizeObserver(fit).observe($("stage"));fit();
